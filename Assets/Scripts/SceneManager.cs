@@ -32,7 +32,7 @@ public class SceneManager : MonoBehaviour
             if (Input.anyKey)
             {
                 Destroy(TutorialCanvas.gameObject);
-                tutorial = true;
+                tutorial = false;
             }
         }
     }
