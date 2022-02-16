@@ -3140,10 +3140,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afeb47adb8f93144581129dc2ed481f8, type: 3}
+  m_Script: {fileID: 11500000, guid: c1b8ac800ea972542911caac9d3543e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hero: {fileID: 578400337}
+  Target: {fileID: 578400337}
   smothTime: 0.5
 --- !u!20 &519420031
 Camera:
@@ -7254,7 +7254,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5543023569153060875, guid: 23db9f4a872710444951490e1f4be22a, type: 3}
       propertyPath: m_Name
-      value: CheckPoint
+      value: CheckPoint 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23db9f4a872710444951490e1f4be22a, type: 3}
@@ -7994,7 +7994,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5543023569153060875, guid: 23db9f4a872710444951490e1f4be22a, type: 3}
       propertyPath: m_Name
-      value: CheckPoint (1)
+      value: CheckPoint 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23db9f4a872710444951490e1f4be22a, type: 3}
@@ -10305,8 +10305,8 @@ MonoBehaviour:
   TutorialCanvas: {fileID: 187733362}
   EndCanvas: {fileID: 1764614375}
   FinishGameMsg: {fileID: 838412929}
-  FailMsg: '"You failed!"'
-  SuccessMsg: '"Congratulations!"'
+  FailMsg: You failed!
+  SuccessMsg: Congratulations!
 --- !u!114 &1425744740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11989,7 +11989,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1685090692}
   m_Layer: 0
-  m_Name: '[restart-points]'
+  m_Name: '[checkpoints]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14865,6 +14865,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1928727037}
     m_Modifications:
+    - target: {fileID: 2391745144557077715, guid: a3343eddaa2c9954398fdfabc23fc13a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3662108432921918981, guid: a3343eddaa2c9954398fdfabc23fc13a, type: 3}
       propertyPath: m_RootOrder
       value: 20
@@ -14908,6 +14912,14 @@ PrefabInstance:
     - target: {fileID: 3662108432921918981, guid: a3343eddaa2c9954398fdfabc23fc13a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001733405676316492, guid: a3343eddaa2c9954398fdfabc23fc13a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7023796127262431473, guid: a3343eddaa2c9954398fdfabc23fc13a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8515003909455261412, guid: a3343eddaa2c9954398fdfabc23fc13a, type: 3}
       propertyPath: m_Name
@@ -15845,7 +15857,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5543023569153060875, guid: 23db9f4a872710444951490e1f4be22a, type: 3}
       propertyPath: m_Name
-      value: CheckPoint
+      value: CheckPoint 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23db9f4a872710444951490e1f4be22a, type: 3}

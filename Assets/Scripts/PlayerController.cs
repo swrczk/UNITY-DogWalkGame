@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 
     Animator animator;
     Rigidbody2D rgBody;
-    CapsuleCollider2D collider;
+    CapsuleCollider2D coll;
     bool dirRight = true;
     float extraHeight = .01f;
 
@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         rgBody = GetComponent<Rigidbody2D>();
-        collider = GetComponent<CapsuleCollider2D>();
+        coll = GetComponent<CapsuleCollider2D>();
     }
 
     void Update()
@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
 
     bool IsOnGround()
     {
-        RaycastHit2D raycast = Physics2D.BoxCast(collider.bounds.center, collider.bounds.size, 0f, Vector2.down, extraHeight, GroundLayerMask);
+        RaycastHit2D raycast = Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, extraHeight, GroundLayerMask);
         // Debug.DrawRay(collider.bounds.center, Vector2.down * (collider.bounds.extents.y + extraHeight), raycast.collider != null ? Color.green : Color.red);
         return raycast.collider != null;
     }

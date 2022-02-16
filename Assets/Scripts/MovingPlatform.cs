@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Numerics;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
@@ -14,7 +10,6 @@ public class MovingPlatform : MonoBehaviour
     Vector3 startVector;
     Vector3 endVector;
 
-    // Start is called before the first frame update
     void Start()
     {
         startVector = startPoint.position;
@@ -23,7 +18,6 @@ public class MovingPlatform : MonoBehaviour
         Destroy(endPoint.gameObject);
     }
 
-    // Update is called once per frame
     void Update()
     {
         currentPosition = Vector3.Lerp(startVector, endVector, Mathf.PingPong(Time.time * Speed, 1));

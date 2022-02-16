@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CrateController : MonoBehaviour
+public class Crate : MonoBehaviour
 {
     [SerializeField] AudioClip Clip;
     GameObject hero;

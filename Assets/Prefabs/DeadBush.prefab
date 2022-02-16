@@ -119,8 +119,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2978484072329971603}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed08f5593811f304890c254689bbceef, type: 3}
+  m_Script: {fileID: 11500000, guid: d91f901083aa0054a854c2d9ddf731af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeadClip: {fileID: 8300000, guid: a0010a1a0c474473b81729eb770c485f, type: 3}
-  FailGameClip: {fileID: 8300000, guid: b9eff218e132a4e76be78840eca96fb2, type: 3}

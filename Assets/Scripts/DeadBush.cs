@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class FailDeadBushController : MonoBehaviour
+public class DeadBush : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D other)
     {

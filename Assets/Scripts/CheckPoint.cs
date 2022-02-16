@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CheckPointController : MonoBehaviour
+public class CheckPoint : MonoBehaviour
 {
     public AudioClip CheckpointClip;
     public GameObject Particles;

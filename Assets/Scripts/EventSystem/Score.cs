@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public interface IScore : IEventSystemHandler
 {
@@ -13,7 +10,6 @@ public class Score : MonoBehaviour, IScore
 {
     int score = 0;
 
-    // Start is called before the first frame update
     void Start()
     {
         RefreshText();
@@ -21,7 +17,6 @@ public class Score : MonoBehaviour, IScore
 
     public void IncrementScore()
     {
-        Debug.Log("score inrement");
         score++;
         RefreshText();
     }
