@@ -6,9 +6,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public AudioClip JumpClip;
     public float HeroSpeed;
     public float JumpForce;
+    public AudioClip JumpClip;
     public Transform GroundTester;
     public LayerMask GroundLayerMask;
     public Transform StartPoint;
@@ -16,29 +16,23 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     Rigidbody2D rgBody;
     CapsuleCollider2D collider;
-
-    LifesManager lifesManager;
-    SceneManager sceneManager;
     bool dirRight = true;
     float extraHeight = .01f;
 
-    // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         rgBody = GetComponent<Rigidbody2D>();
         collider = GetComponent<CapsuleCollider2D>();
-        lifesManager = GameObject.Find("Manager").GetComponent<LifesManager>();
-        sceneManager = GameObject.Find("Manager").GetComponent<SceneManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (rgBody == null) return;
-
-        HorizontalMove();
-        VerticalMove();
+        if (rgBody != null)
+        {
+            HorizontalMove();
+            VerticalMove();
+        }
     }
 
     void HorizontalMove()
@@ -99,36 +93,26 @@ public class PlayerController : MonoBehaviour
         AudioSource.PlayClipAtPoint(JumpClip, transform.position);
     }
 
-    public void RestartHero()
-    {
-        gameObject.transform.position = StartPoint.position;
-        lifesManager.LoseLife();
-    }
-
-    public void FailGame()
-    {
-        FreezePlayer();
-        Destroy(rgBody);
-        sceneManager.FinishGame(false);
-    }
-
-    public void EndGame()
-    {
-        Jump();
-        FreezePlayer();
-        Destroy(rgBody);
-        Invoke("CallEndGameCanvas", 0.5f);
-    }
-
-    void CallEndGameCanvas()
-    {
-        sceneManager.FinishGame(true);
-    }
-
     void FreezePlayer()
     {
         rgBody.AddForce(new Vector2(0f, -JumpForce));
         rgBody.constraints = RigidbodyConstraints2D.FreezeAll;
         animator.SetFloat("speed", 0f);
+    }
+
+    public void NextLevelReaction()
+    {
+        Jump();
+        FreezePlayer();
+        Destroy(rgBody);
+    }
+
+    public void FailGameReaction()
+    {
+        if (rgBody != null)
+        {
+            FreezePlayer();
+            Destroy(rgBody);
+        }
     }
 }

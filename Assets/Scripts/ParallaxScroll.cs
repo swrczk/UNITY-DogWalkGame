@@ -10,13 +10,11 @@ public class ParallaxScroll : MonoBehaviour
     Vector3 prevCameraPosition;
     Vector3 deltaCameraPosition;
 
-    // Start is called before the first frame update
     void Start()
     {
         prevCameraPosition = CameraTransform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
         deltaCameraPosition = prevCameraPosition - CameraTransform.position;

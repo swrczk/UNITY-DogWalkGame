@@ -1,24 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CrateController : MonoBehaviour
 {
-    public AudioClip Clip;
+    [SerializeField] AudioClip Clip;
     GameObject hero;
-    CounterController manager;
     Animator animator;
+
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         hero = GameObject.Find("Dog");
-        manager = GameObject.Find("Manager").GetComponent<CounterController>();
-        if (manager == null)
-        {
-            Debug.LogError("Counter Controller not found.");
-        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -33,6 +29,6 @@ public class CrateController : MonoBehaviour
     void RemoveCrate()
     {
         Destroy(this.gameObject);
-        manager.IncrementCounter();
+        ExecuteEvents.Execute<IScore>(EventManager.Instance.GetEventSystem(), null, (x,y)=>x.IncrementScore());
     }
 }

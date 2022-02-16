@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CheckPointController : MonoBehaviour
 {
@@ -8,7 +9,6 @@ public class CheckPointController : MonoBehaviour
     public GameObject Particles;
     SpriteRenderer spriteRenderer;
 
-    // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -18,11 +18,16 @@ public class CheckPointController : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerController>().StartPoint = this.transform;
-            spriteRenderer.color = Color.white;
-            AudioSource.PlayClipAtPoint(CheckpointClip, transform.position);
-            Instantiate(Particles, transform.position, Particles.transform.rotation);
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            ExecuteEvents.Execute<IHealth>(EventManager.Instance.GetEventSystem(), null, (x, y) => x.SetCheckPoint(this.transform));
+            CheckPointEffect();
         }
+    }
+
+    void CheckPointEffect()
+    {
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        spriteRenderer.color = Color.white;
+        AudioSource.PlayClipAtPoint(CheckpointClip, transform.position);
+        Instantiate(Particles, transform.position, Particles.transform.rotation);
     }
 }
